@@ -1,0 +1,9 @@
+User-Agent: *
+Disallow: /js/
+Disallow: /stylesheet/
+Dissallow: /images/
+Host: pavel.mineev.me
+
+User-Agent: YandexBlogs
+Allow: /
+Host: blog.mineev.me
