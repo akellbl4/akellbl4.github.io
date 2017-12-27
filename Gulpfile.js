@@ -33,6 +33,7 @@ gulp.task('serve', () => {
 	connect.server({
 		root: [ './dist', './public' ],
 		livereload: true,
+		debug: true,
 	})
 })
 
