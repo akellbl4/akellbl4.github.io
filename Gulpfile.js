@@ -19,7 +19,7 @@ gulp.task('html', () =>
 			base: './public',
 			css: csso,
 			js: () => uglify({ mangle: false }),
-			disabledTypes: ['svg', 'img']
+			disabledTypes: ['svg', 'img'],
 		}))
 		.pipe(htmlmin({ collapseWhitespace: true }))
 		.pipe(connect.reload())
@@ -37,10 +37,11 @@ gulp.task('serve', () => {
 	})
 })
 
-gulp.task('deploy', () =>
+gulp.task('gh-pages', () =>
 	gulp.src('./dist/**/*')
 		.pipe(ghPages({ branch: 'master' }))
 )
 
 gulp.task('default', gulp.series('copy', 'html'))
+gulp.task('deploy', gulp.series('default', 'gh-pages'))
 gulp.task('dev', gulp.series('default', 'serve'))

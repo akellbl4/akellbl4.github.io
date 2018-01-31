@@ -1,77 +1,141 @@
+:root {
+	--gray-text: #999;
+}
+
 html,
 body {
-    position: relative;
-    height: 100%;
-    min-height: 100%;
+	position: relative;
+	height: 100%;
+	min-height: 100%;
 }
 
 body {
-    min-width: 320px;
-    min-height: 480px;
-    margin: 0;
-    font-family: Helvetica, Tahoma, Arial, sans-serif;
-    text-align: center;
+	min-width: 320px;
+	min-height: 480px;
+	margin: 0;
+	font-family: system-ui, Helvetica, Tahoma, Arial, sans-serif;
+	text-align: center;
+}
+
+a {
+	color: var(--gray-text);
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	transition: border-color .15s;
+}
+
+a:hover {
+	border-bottom: 1px solid var(--gray-text);
 }
 
 .content {
-    min-height: 100%; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+	min-height: 100%; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .me {
-    width: 100%;
-    align-self: flex-end;
+	width: 100%;
+	align-self: flex-end;
+	user-select: none;
 }
 
 .my-name-is {
-    font-size: 10vmin;
-    font-weight: bold;
-    color: #272727;
-    margin-bottom: 3vmin;
+	font-size: 10vmin;
+	font-weight: bold;
+	color: #272727;
+	margin: 0 0 3vmin 0;
 }
 
 .my-job {
-    font-size: 2.5vmin;
-    font-weight: 100;
-    color: #999;
+	--font-size: 2.5vmin;
+	font-size: var(--font-size);
+	font-weight: 300;
+	color: var(--gray-text);
+	margin: 0;
 }
 
-.my-job a {
-    color: #999;
-    text-decoration: none;
-    border-bottom: 1px solid;
-    line-height: 1;
-    display: inline-block;
-    vertical-align: bottom;
+.my-links {
+	--font-size: 1.6vmin;
+	width: 100%;
+	align-self: flex-end;
+	font-size: var(--font-size);
+	font-weight: 200;
+	margin-bottom: 8vmin;
 }
 
-.social {
-    --font-size: 1.6vmin;
-    width: 100%;
-    align-self: flex-end;
-    font-size: var(--font-size);
-    font-weight: 100;
-    margin-bottom: 3vmin;
+.link {
+	position: relative;
+	display: inline-block;
+	margin: 0 1.5vmin;
+	line-height: 1.5;
+	text-decoration: none;
+	transition: color .3s linear;
+}
+.link:hover {
+	color: transparent;
+	border-color: transparent;
+}
+.link::after {
+	transition: opacity .3s linear;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	opacity: 0;
+	color: initial;
+}
+.link_email::after {
+	content: "✉️";
+}
+.link_telegram::after {
+	content: "💬";
+}
+.link_facebook::after {
+	content: "👤";
+}
+.link_instagram::after {
+	content: "📷";
+}
+.link_vk::after {
+	content: "🐶";
+}
+.link_twitter::after {
+	content: "🐦";
+}
+.link_drive2::after {
+	content: "🚗💨";
+}
+.link_github::after {
+	content: "👨‍💻";	
 }
 
-.social-link {
-    position: relative;
-    display: inline-block;
-    margin: 0 1.5vmin;
-    color: #999;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
+.link:hover::after {
+	opacity: 1;
 }
 
-.social-link:hover {
-    border-bottom: 1px solid;
-}
 
 @media (max-width: 640px) {
-    .social {
-        --font-size: 3vmin;
-    }
+	:root {
+		--link-border-color: transporent;
+		--link-hover-border-color: transparent;
+	}
+
+	.my-links {
+		--font-size: 3vmin;
+		margin-left: 5vmin;
+		margin-right: 5vmin;
+		line-height: 2;
+	}
+	.my-links-item {
+		margin-bottom: 2vmin;
+	}
+	.my-job {
+		--font-size: 3.5vmin;
+		text-decoration: none;
+	}
 }
