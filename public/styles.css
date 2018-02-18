@@ -28,7 +28,7 @@ a:hover {
 	border-bottom: 1px solid var(--gray-text);
 }
 
-.content {
+.pm--content {
 	min-height: 100%; 
 	display: flex;
 	align-items: center;
@@ -36,20 +36,20 @@ a:hover {
 	flex-wrap: wrap;
 }
 
-.me {
+.pm--me {
 	width: 100%;
 	align-self: flex-end;
 	user-select: none;
 }
 
-.my-name-is {
+.pm--my-name-is {
 	font-size: 10vmin;
 	font-weight: bold;
 	color: #272727;
 	margin: 0 0 3vmin 0;
 }
 
-.my-job {
+.pm--my-job {
 	--font-size: 2.5vmin;
 	font-size: var(--font-size);
 	font-weight: 300;
@@ -57,7 +57,7 @@ a:hover {
 	margin: 0;
 }
 
-.my-links {
+.pm--my-links {
 	--font-size: 1.6vmin;
 	width: 100%;
 	align-self: flex-end;
@@ -66,7 +66,7 @@ a:hover {
 	margin-bottom: 8vmin;
 }
 
-.link {
+.pm--link {
 	position: relative;
 	display: inline-block;
 	margin: 0 1.5vmin;
@@ -74,11 +74,11 @@ a:hover {
 	text-decoration: none;
 	transition: color .3s linear;
 }
-.link:hover {
+.pm--link:hover {
 	color: transparent;
 	border-color: transparent;
 }
-.link::after {
+.pm--link::after {
 	transition: opacity .3s linear;
 	position: absolute;
 	left: 0;
@@ -89,32 +89,32 @@ a:hover {
 	opacity: 0;
 	color: initial;
 }
-.link_email::after {
+.pm--link_email::after {
 	content: "✉️";
 }
-.link_telegram::after {
+.pm--link_telegram::after {
 	content: "💬";
 }
-.link_facebook::after {
+.pm--link_facebook::after {
 	content: "👤";
 }
-.link_instagram::after {
+.pm--link_instagram::after {
 	content: "📷";
 }
-.link_vk::after {
+.pm--link_vk::after {
 	content: "🐶";
 }
-.link_twitter::after {
+.pm--link_twitter::after {
 	content: "🐦";
 }
-.link_drive2::after {
+.pm--link_drive2::after {
 	content: "🚗💨";
 }
-.link_github::after {
+.pm--link_github::after {
 	content: "👨‍💻";	
 }
 
-.link:hover::after {
+.pm--link:hover::after {
 	opacity: 1;
 }
 
@@ -125,16 +125,16 @@ a:hover {
 		--link-hover-border-color: transparent;
 	}
 
-	.my-links {
+	.pm--my-links {
 		--font-size: 3vmin;
 		margin-left: 5vmin;
 		margin-right: 5vmin;
 		line-height: 2;
 	}
-	.my-links-item {
+	.pm--my-links-item {
 		margin-bottom: 2vmin;
 	}
-	.my-job {
+	.pm--my-job {
 		--font-size: 3.5vmin;
 		text-decoration: none;
 	}
