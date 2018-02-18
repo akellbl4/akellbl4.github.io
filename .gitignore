@@ -1,6 +1,7 @@
 .DS_Store
 ._*
 package-lock.json
+yarn-error.log
 node_modules
 dist
 .publish
