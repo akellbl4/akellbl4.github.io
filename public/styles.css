@@ -124,6 +124,9 @@ a:hover {
 	content: "🚗💨";
 }
 .pm--link_github::after {
+	content: "🐙";
+}
+.pm--link_linkedin::after {
 	content: "👨‍💻";
 }
 
