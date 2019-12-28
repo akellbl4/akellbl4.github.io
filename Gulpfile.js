@@ -25,45 +25,48 @@ const HTMLMINIFY_OPTS = {
 	removeOptionalTags: true,
 }
 
-
 // minify class names and copy to dest dir
 gulp.task('minify-classnames', () =>
-	gulp.src('*.{css,html,js}', SRC_CWD)
-		.pipe(gulpMinifyCssNames({
-			prefix: 'pm--',
-			postfix: '',
-		}))
-		.pipe(gulp.dest(DEST_DIR))
+	gulp
+		.src('*.{css,html,js}', SRC_CWD)
+		.pipe(
+			gulpMinifyCssNames({
+				prefix: 'pm--',
+				postfix: '',
+			}),
+		)
+		.pipe(gulp.dest(DEST_DIR)),
 )
 
 // copy unprocessible files to dest dir
 gulp.task('copy-other-files', () =>
-	gulp.src(['*.!(html|js|css)', 'CNAME'], SRC_CWD)
+	gulp
+		.src(['*.!(html|js|css)', 'CNAME'], SRC_CWD)
 		.pipe(connect.reload())
-		.pipe(gulp.dest(DEST_DIR))
+		.pipe(gulp.dest(DEST_DIR)),
 )
 
 // minify and insert css and js to html
 gulp.task('minify-html-inline', () =>
-	gulp.src('index.html', DEST_CWD)
-		.pipe(size({title:'HTML'}))
-		.pipe(inline({
-			base: DEST_DIR,
-			css: [csso, () => size({ title: 'Styles' })],
-			js: [terser, () => size({ title: 'Scripts', showFiles: true })],
-			disabledTypes: ['svg', 'img'],
-		}))
+	gulp
+		.src('index.html', DEST_CWD)
+		.pipe(size({ title: 'HTML' }))
+		.pipe(
+			inline({
+				base: DEST_DIR,
+				css: [csso, () => size({ title: 'Styles' })],
+				js: [terser, () => size({ title: 'Scripts', showFiles: true })],
+				disabledTypes: ['svg', 'img'],
+			}),
+		)
 		.pipe(htmlmin(HTMLMINIFY_OPTS))
 		.pipe(size({ title: 'Fulfilled HTML' }))
 		.pipe(connect.reload())
-		.pipe(gulp.dest(DEST_DIR))
+		.pipe(gulp.dest(DEST_DIR)),
 )
 
 // remove inlined css and js from dest dir
-gulp.task('cleanup-build', () =>
-	gulp.src('*.{js,css}', DEST_CWD)
-		.pipe(rimraf())
-)
+gulp.task('cleanup-build', () => gulp.src('*.{js,css}', DEST_CWD).pipe(rimraf()))
 
 gulp.task('serve', () => {
 	gulp.watch('./public/*.(html|css|js)', gulp.series('minify-classnames', 'minify-html-inline', 'cleanup-build'))
@@ -77,10 +80,7 @@ gulp.task('serve', () => {
 	})
 })
 
-gulp.task('gh-pages', () =>
-	gulp.src(`${DEST_DIR}/**/*`)
-		.pipe(ghPages({ branch: 'master' }))
-)
+gulp.task('gh-pages', () => gulp.src(`${DEST_DIR}/**/*`).pipe(ghPages({ branch: 'master' })))
 
 // build site to dest dir
 gulp.task('default', gulp.series('minify-classnames', 'copy-other-files', 'minify-html-inline', 'cleanup-build'))

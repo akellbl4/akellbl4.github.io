@@ -7,9 +7,33 @@
   "scripts": {
     "build": "yarn gulp",
     "dev": "yarn gulp dev",
-    "deploy": "yarn gulp deploy"
+    "deploy": "yarn gulp deploy",
+    "lint:js": "eslint public/*.js",
+    "lint:css": "stylelint public/*.css",
+    "lint": "concurrently 'yarn lint:js' 'yarn lint:css'",
+    "prettify": "prettier --write public/*.{js,css,html}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": [
+        "pretty-quick --staged",
+        "yarn lint"
+      ]
+    }
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "concurrently": "^5.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "gulp": "^4.0.2",
     "gulp-connect": "^5.0.0",
     "gulp-copy": "^4.0.1",
@@ -20,6 +44,13 @@
     "gulp-minify-cssnames": "^2.1.0",
     "gulp-rimraf": "^1.0.0",
     "gulp-size": "^3.0.0",
-    "gulp-terser": "^1.2.0"
+    "gulp-terser": "^1.2.0",
+    "husky": "^3.1.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "stylelint": "^12.0.1",
+    "stylelint-config-prettier": "^8.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-prettier": "^1.1.2"
   }
 }

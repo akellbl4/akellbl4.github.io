@@ -1,0 +1,8 @@
+{
+  "env": {"browser": true},
+  "plugins": ["prettier"],
+  "extends": ["standard", "plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
