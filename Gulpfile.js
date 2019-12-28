@@ -3,7 +3,8 @@ const htmlmin = require('gulp-htmlmin')
 const inline = require('gulp-inline')
 const csso = require('gulp-csso')
 const rimraf = require('gulp-rimraf')
-const uglify = require('gulp-uglify-es').default
+const terser = require('gulp-terser')
+const size = require('gulp-size')
 const connect = require('gulp-connect')
 const gulpMinifyCssNames = require('gulp-minify-cssnames')
 const ghPages = require('gulp-gh-pages')
@@ -12,11 +13,16 @@ const SRC_DIR = './public'
 const DEST_DIR = './dist'
 const SRC_CWD = { cwd: SRC_DIR }
 const DEST_CWD = { cwd: DEST_DIR }
-const UGLIFY_OPTS = { mangle: false }
 const HTMLMINIFY_OPTS = {
-	collapseWhitespace: true,
 	removeComments: true,
-	sortAttributes: true,
+	collapseWhitespace: true,
+	collapseBooleanAttributes: true,
+	removeAttributeQuotes: true,
+	removeRedundantAttributes: true,
+	removeEmptyAttributes: true,
+	removeScriptTypeAttributes: true,
+	removeStyleLinkTypeAttributes: true,
+	removeOptionalTags: true,
 }
 
 
@@ -40,13 +46,15 @@ gulp.task('copy-other-files', () =>
 // minify and insert css and js to html
 gulp.task('minify-html-inline', () =>
 	gulp.src('index.html', DEST_CWD)
+		.pipe(size({title:'HTML'}))
 		.pipe(inline({
 			base: DEST_DIR,
-			css: csso,
-			js: () => uglify(UGLIFY_OPTS),
+			css: [csso, () => size({ title: 'Styles' })],
+			js: [terser, () => size({ title: 'Scripts', showFiles: true })],
 			disabledTypes: ['svg', 'img'],
 		}))
 		.pipe(htmlmin(HTMLMINIFY_OPTS))
+		.pipe(size({ title: 'Fulfilled HTML' }))
 		.pipe(connect.reload())
 		.pipe(gulp.dest(DEST_DIR))
 )
@@ -62,9 +70,10 @@ gulp.task('serve', () => {
 	gulp.watch('./public/*.!(html|css|js)', gulp.series('copy-other-files'))
 
 	connect.server({
-		root: [ DEST_DIR, SRC_DIR ],
+		root: [DEST_DIR, SRC_DIR],
 		livereload: true,
 		debug: true,
+		port: 3030,
 	})
 })
 
