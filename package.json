@@ -5,9 +5,9 @@
   "author": "Pavel Mineev <pavel@mineev.me>",
   "license": "ISC",
   "scripts": {
-    "build": "yarn gulp",
-    "dev": "yarn gulp dev",
-    "deploy": "yarn gulp deploy",
+    "build": "gulp",
+    "dev": "gulp dev",
+    "deploy": "gulp deploy",
     "lint:js": "eslint public/*.js",
     "lint:css": "stylelint public/*.css",
     "lint": "concurrently 'yarn lint:js' 'yarn lint:css'",
