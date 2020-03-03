@@ -22,7 +22,6 @@ const HTMLMINIFY_OPTS = {
 	removeEmptyAttributes: true,
 	removeScriptTypeAttributes: true,
 	removeStyleLinkTypeAttributes: true,
-	removeOptionalTags: true,
 }
 
 // minify class names and copy to dest dir
