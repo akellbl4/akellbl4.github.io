@@ -16,7 +16,7 @@ body {
 	min-width: 320px;
 	min-height: 480px;
 	margin: 0;
-	font-family: system-ui, Helvetica, Tahoma, Arial, sans-serif;
+	font-family: 'fuck chrome', Helvetica, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
 	text-align: center;
 	background: var(--background);
 	color: var(--text);
