@@ -131,6 +131,9 @@ a:hover {
 .pm--link_linkedin::after {
 	content: '👨‍💻';
 }
+.pm--link_solvery::after {
+	content: '👨‍🏫';
+}
 
 .pm--link:hover::after {
 	opacity: 1;
