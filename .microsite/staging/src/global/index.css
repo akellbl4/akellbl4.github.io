@@ -1,0 +1,165 @@
+:root {
+	--background: #fff;
+	--text: #272727;
+	--secondary-text: #999;
+	--link-underline: #eee;
+}
+
+html,
+body,
+#__microsite {
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+}
+
+body {
+	min-width: 320px;
+	min-height: 480px;
+	margin: 0;
+	font-family: 'fuck chrome', Helvetica, system-ui, -apple-system,
+		BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+	text-align: center;
+	background: var(--background);
+	color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #272727;
+		--text: #fff;
+		--secondary-text: #999;
+		--link-underline: #444;
+	}
+}
+
+a {
+	color: var(--secondary-text);
+	text-decoration: none;
+	border-bottom: 1px solid var(--link-underline);
+	transition: border-color 0.15s;
+}
+
+a:hover {
+	border-bottom: 1px solid var(--secondary-text);
+}
+
+.pm--content {
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.pm--me {
+	width: 100%;
+	align-self: flex-end;
+	user-select: none;
+}
+
+.pm--my-name-is {
+	font-size: 10vmin;
+	font-weight: bold;
+	margin: 0 0 3vmin 0;
+}
+
+.pm--my-job {
+	--font-size: 2.5vmin;
+
+	font-size: var(--font-size);
+	font-weight: 300;
+	color: var(--secondary-text);
+	margin: 0;
+}
+
+.pm--my-links {
+	--font-size: 1.6vmin;
+
+	width: 100%;
+	align-self: flex-end;
+	font-size: var(--font-size);
+	font-weight: 200;
+	margin-bottom: 8vmin;
+}
+
+.pm--link {
+	position: relative;
+	display: inline-block;
+	margin: 0 1.5vmin;
+	line-height: 1.5;
+	text-decoration: none;
+	transition: color 0.3s linear;
+}
+.pm--link:hover {
+	color: transparent;
+	border-color: transparent;
+}
+.pm--link::after {
+	transition: opacity 0.3s linear;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	opacity: 0;
+	color: initial;
+}
+.pm--link_email::after {
+	content: '✉️';
+}
+.pm--link_telegram::after {
+	content: '💬';
+}
+.pm--link_facebook::after {
+	content: '👤';
+}
+.pm--link_instagram::after {
+	content: '📷';
+}
+.pm--link_vk::after {
+	content: '🐶';
+}
+.pm--link_twitter::after {
+	content: '🐦';
+}
+.pm--link_drive2::after {
+	content: '🚗💨';
+}
+.pm--link_github::after {
+	content: '🐙';
+}
+.pm--link_linkedin::after {
+	content: '👨‍💻';
+}
+.pm--link_solvery::after {
+	content: '👨‍🏫';
+}
+
+.pm--link:hover::after {
+	opacity: 1;
+}
+
+@media (max-width: 640px) {
+	:root {
+		--link-border-color: transporent;
+		--link-hover-border-color: transparent;
+	}
+
+	.pm--my-links {
+		--font-size: 3vmin;
+
+		margin-left: 5vmin;
+		margin-right: 5vmin;
+		line-height: 2;
+	}
+	.pm--my-links-item {
+		margin-bottom: 2vmin;
+	}
+	.pm--my-job {
+		--font-size: 3.5vmin;
+
+		text-decoration: none;
+	}
+}
