@@ -1,6 +1,0 @@
-User-Agent: *
-Host: pavel.mineev.me
-
-User-Agent: YandexBlogs
-Allow: /
-Host: blog.mineev.me
