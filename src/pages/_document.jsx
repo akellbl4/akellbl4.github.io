@@ -17,7 +17,7 @@ const Document = () => (
 				content="width=device-width, minimum-scale=1, initial-scale=1"
 			/>
 			<meta name="author" content="Pavel Mineev" />
-			<meta name="description" content="My personal page" />
+			<meta name="description" content="Be my guest on my site and check out what I've done for the last time" />
 			<meta name="keywords" content="Павел Минеев, Pavel Mineev, akellbl4" />
 		</Head>
 		<body>
