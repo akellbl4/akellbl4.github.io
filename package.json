@@ -4,6 +4,7 @@
 	"description": "My personal site",
 	"author": "Pavel Mineev <pavel@mineev.me>",
 	"license": "MIT",
+	"type": "module",
 	"scripts": {
 		"dev": "microsite",
 		"build": "microsite build",
