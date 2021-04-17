@@ -4,14 +4,12 @@
 	--secondary-text: #999;
 	--link-underline: #eee;
 }
-
 html,
 body {
 	position: relative;
 	height: 100%;
 	min-height: 100%;
 }
-
 body {
 	min-width: 320px;
 	min-height: 480px;
@@ -21,7 +19,6 @@ body {
 	background: var(--background);
 	color: var(--text);
 }
-
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #272727;
@@ -30,18 +27,15 @@ body {
 		--link-underline: #444;
 	}
 }
-
 a {
 	color: var(--secondary-text);
 	text-decoration: none;
 	border-bottom: 1px solid var(--link-underline);
 	transition: border-color 0.15s;
 }
-
 a:hover {
 	border-bottom: 1px solid var(--secondary-text);
 }
-
 .pm--content {
 	min-height: 100%;
 	display: flex;
@@ -49,38 +43,31 @@ a:hover {
 	justify-content: center;
 	flex-wrap: wrap;
 }
-
 .pm--me {
 	width: 100%;
 	align-self: flex-end;
 	user-select: none;
 }
-
 .pm--my-name-is {
 	font-size: 10vmin;
 	font-weight: bold;
 	margin: 0 0 3vmin 0;
 }
-
 .pm--my-job {
 	--font-size: 2.5vmin;
-
 	font-size: var(--font-size);
 	font-weight: 300;
 	color: var(--secondary-text);
 	margin: 0;
 }
-
 .pm--my-links {
 	--font-size: 1.6vmin;
-
 	width: 100%;
 	align-self: flex-end;
 	font-size: var(--font-size);
 	font-weight: 200;
 	margin-bottom: 8vmin;
 }
-
 .pm--link {
 	position: relative;
 	display: inline-block;
@@ -122,8 +109,8 @@ a:hover {
 .pm--link_twitter::after {
 	content: '🐦';
 }
-.pm--link_drive2::after {
-	content: '🚗💨';
+.pm--link_medium::after {
+	content: '📝';
 }
 .pm--link_github::after {
 	content: '🐙';
@@ -131,23 +118,16 @@ a:hover {
 .pm--link_linkedin::after {
 	content: '👨‍💻';
 }
-.pm--link_solvery::after {
-	content: '👨‍🏫';
-}
-
 .pm--link:hover::after {
 	opacity: 1;
 }
-
 @media (max-width: 640px) {
 	:root {
-		--link-border-color: transporent;
+		--link-border-color: transparent;
 		--link-hover-border-color: transparent;
 	}
-
 	.pm--my-links {
 		--font-size: 3vmin;
-
 		margin-left: 5vmin;
 		margin-right: 5vmin;
 		line-height: 2;
@@ -157,7 +137,6 @@ a:hover {
 	}
 	.pm--my-job {
 		--font-size: 3.5vmin;
-
 		text-decoration: none;
 	}
 }
