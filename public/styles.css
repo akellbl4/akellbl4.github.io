@@ -91,25 +91,16 @@ a:hover {
 	opacity: 0;
 	color: initial;
 }
-.pm--link_email::after {
-	content: '✉️';
-}
-.pm--link_telegram::after {
-	content: '💬';
-}
 .pm--link_facebook::after {
 	content: '👤';
 }
 .pm--link_instagram::after {
 	content: '📷';
 }
-.pm--link_vk::after {
-	content: '🐶';
-}
 .pm--link_twitter::after {
 	content: '🐦';
 }
-.pm--link_medium::after {
+.pm--link_blog::after {
 	content: '📝';
 }
 .pm--link_github::after {
